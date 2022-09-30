@@ -77,3 +77,4 @@ yarn lint
 
 ## Настройка окружения Vuejs
 Смотрите [Configuration Reference](https://cli.vuejs.org/config/).
+
