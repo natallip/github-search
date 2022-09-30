@@ -4,17 +4,15 @@ export default {
   async getRepositories(value) {
     const url = 'https://api.github.com/search/repositories';
 
-    if (!value.length) return;
-
     try {
-      const {
-        data: { items },
-      } = await axios.get(url, { params: { q: value, sort: 'stars', order: 'desc' } });
+      const { data } = await axios.get(url, {
+        params: { q: value.value, sort: 'stars', order: 'desc', page: value.page, per_page: value.perPage },
+      });
 
-      return items;
+      return data;
     } catch (e) {
-      throw Error(e);
       console.log(e);
+      throw Error(e);
     }
   },
 };

@@ -10,7 +10,7 @@
           clear-icon="$clear"
           placeholder="Search..."
           loading="isLoading"
-          @input="loadRepositories"
+          @input="loadData"
         />
       </v-col>
     </v-row>
@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapState, mapActions, mapMutations } from 'vuex';
 
 export default {
   name: 'Search',
@@ -31,14 +31,29 @@ export default {
     ...mapState({
       isLoading: (state) => state.isLoading,
       repositories: (state) => state.repositories,
-      search: (state) => state.search,
+      searchData: (state) => state.search,
     }),
+
+    search: {
+      get() {
+        return this.searchData;
+      },
+      set(data) {
+        this.updateState({ property: 'search', value: data });
+      },
+    },
   },
 
   methods: {
+    ...mapMutations({
+      updateState: 'UPDATE_STATE_PROPERTY',
+    }),
     ...mapActions({
       loadRepositories: 'GET_REPOSITORIES',
     }),
+    async loadData() {
+      await this.loadRepositories({ value: this.search, page: 1, perPage: 10 });
+    },
   },
 };
 </script>

@@ -10,6 +10,9 @@ export default new Vuex.Store({
     isLoading: false,
     filteredRepositories: [],
     search: '',
+    totalCount: 0,
+    page: 1,
+    perPage: 10,
   },
   mutations: {
     UPDATE_STATE_PROPERTY(state, { property, value }) {
@@ -23,21 +26,32 @@ export default new Vuex.Store({
         property: 'isLoading',
         value: true,
       });
-      const repositories = await RepositoryService.getRepositories(payload);
+
+      const data = await RepositoryService.getRepositories({
+        value: payload.value,
+        page: payload.page,
+        perPage: payload.perPage,
+      });
+
       commit({
         type: 'UPDATE_STATE_PROPERTY',
         property: 'filteredRepositories',
-        value: repositories,
+        value: data.items,
       });
       commit({
         type: 'UPDATE_STATE_PROPERTY',
         property: 'repositories',
-        value: repositories,
+        value: data.items,
       });
       commit({
         type: 'UPDATE_STATE_PROPERTY',
         property: 'search',
-        value: payload,
+        value: payload.value,
+      });
+      commit({
+        type: 'UPDATE_STATE_PROPERTY',
+        property: 'totalCount',
+        value: data.total_count,
       });
       commit({
         type: 'UPDATE_STATE_PROPERTY',

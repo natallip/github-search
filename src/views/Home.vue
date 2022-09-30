@@ -20,7 +20,9 @@ export default {
     FilterList,
   },
   data: () => ({
-    filters: [{ name: 'language', title: 'Language', type: 'autocomplete', options: ['Vue', 'JavaScript', 'TypeScript'] }],
+    filters: [
+      { name: 'language', title: 'Language', type: 'autocomplete', options: ['Vue', 'JavaScript', 'TypeScript'] },
+    ],
     headers: [
       {
         text: 'Name',
