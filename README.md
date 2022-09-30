@@ -1,6 +1,6 @@
-# vue-github-search
+# Vue Github Search
 
-## Description
+## Тестовое задание
 Написать небольшое приложение для работы с github.
 
 В приложении должна быть строка поиска, в которую можно вписать что-то  и по этому запросу поискать репозиторий на гитхабе.
@@ -9,32 +9,72 @@
 
 Под строкой поиска должен быть список, результат поиска. Тут будут названия репозиториев в краткой информацией по каждому репозиторию. На этой же странице желательно сделать 1-2 фильтра, которые отфильтруют репозитории по какому-то из параметров.
 
-По нажатии на название репозитория в результате выдачи, должен быть переход на страницу репозитория внутри приложения. Туда нужно подтянуть расширенную информацию по репозиторию (не обязательно много, скорее нужна та информация которая не возвращается в результатах поиска). 
+По нажатии на название репозитория в результате выдачи, должен быть переход на страницу репозитория внутри приложения. Туда нужно подтянуть расширенную информацию по репозиторию (не обязательно много, скорее нужна та информация которая не возвращается в результатах поиска).
+
+## Системные требования
+
+- Git (https://git-scm.com/)
+- Node.js 12+ (https://nodejs.org/)
+- Yarn 1.22.5+ (https://classic.yarnpkg.com/) 
 
 
-## [SEE RESULT](https://github-search-vue.vercel.app/)
+## Основыне технологии
+- Vue 2
+- Vuex
+- Vue-router
+- Vuetify
+- Axios
+- Moment
 
-## Technologes: Vue, Vuex, Vue-router, Vuetify, axios, moment
+## Установка
 
-## Project setup
-```
-yarn install
-```
+### Git
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 
-### Compiles and minifies for production
-```
-yarn build
-```
+### Node.js
 
-### Lints and fixes files
+- Linux: https://nodejs.org/en/download/package-manager/
+- Windows: https://nodejs.org/en/download/
+
+### Yarn
+
+https://classic.yarnpkg.com/en/docs/install
+
+
+## Настройка и запуск проекта
+
+1. `git clone https://github.com/natallip/github-search.git`
+1. `cd github-search`
+1. `git checkout master`
+1. `yarn`
+1. `yarn serve`
+1. Открыть http://localhost:8080/ 
+
+## Сборка дистрибутива
+
+1. `git clone https://github.com/natallip/github-search.git`
+1. `cd github-search`
+1. `git checkout master`
+1. `yarn`
+1. `yarn build`
+
+## Проверка кода
+
 ```
 yarn lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Переменные окружения
+
+| Название                 | Описание                                      | Значение по умолчанию                                                     |
+|--------------------------|-----------------------------------------------|---------------------------------------------------------------------------|
+| BASE_URL                 | Базовый URL                                   |                                                                           |
+
+## Демонстрация работы приложения
+
+Для ознакомления с работой приложения необходимо перейти по [ссылке](https://github-search-sage.vercel.app/).
+
+## Настройка окружения Vuejs
+Смотрите [Configuration Reference](https://cli.vuejs.org/config/).
+
